@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,11 +32,27 @@ public class ReferenceController {
         this.serverPort = serverPort;
     }
 
-    @GetMapping("/test/{value}")
-    List<Reference> test(final @PathVariable("value") String value) {
-        log.info("Server port {}: Getting vlue = {}  ", serverPort, value);
-        
-        return referenceService.getAll();
-    }
+//    @GetMapping("/test/{value}")
+//    List<Reference> test(final @PathVariable("value") String value) {
+//        log.info("Server port {}: Getting vlue = {}  ", serverPort, value);
+//        
+//        return referenceService.getAll();
+//    }
 
+  @GetMapping("/getAll")
+  List<Reference> getAll() {
+      log.info("Server port {}: Getting all. ", serverPort);
+      return referenceService.getAll();
+  }
+
+  @PostMapping("/createReference")
+  ResponseEntity<Reference> createReference(@RequestBody Reference reference) {
+      log.info("Server port {}: Creating Reference {}", serverPort, reference.toString());
+	  return ResponseEntity.ok(referenceService.create(reference));
+  }
+  
+	
+	
+	
+	
 }

@@ -27,4 +27,9 @@ public class ReferenceServiceImpl implements ReferenceService {
 		return (List<Reference>) referenceRepository.findAll();
 	}
 
+	@Override
+	public Reference create(Reference reference) {
+		return referenceRepository.save(reference);
+	}
+
 }

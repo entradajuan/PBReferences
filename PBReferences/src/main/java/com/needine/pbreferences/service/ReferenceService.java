@@ -7,5 +7,6 @@ import com.needine.pbreferences.domain.Reference;
 public interface ReferenceService {
 	
 	List<Reference> getAll();
+	Reference create(Reference reference);
 
 }
