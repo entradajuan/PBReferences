@@ -28,7 +28,7 @@ public class Reference {
     private final String country;
 
     // Empty constructor for JSON/JPA
-    Reference() {
+    public Reference() {
         this("", "");
     }
 

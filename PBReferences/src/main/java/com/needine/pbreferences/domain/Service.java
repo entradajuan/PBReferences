@@ -33,7 +33,7 @@ public class Service {
     private Reference reference;
 
     // Empty constructor for JSON/JPA
-    Service() {
+    public Service() {
         this("");
     }
     
