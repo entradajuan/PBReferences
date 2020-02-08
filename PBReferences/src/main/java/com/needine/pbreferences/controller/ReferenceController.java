@@ -32,12 +32,6 @@ public class ReferenceController {
         this.serverPort = serverPort;
     }
 
-//    @GetMapping("/test/{value}")
-//    List<Reference> test(final @PathVariable("value") String value) {
-//        log.info("Server port {}: Getting vlue = {}  ", serverPort, value);
-//        
-//        return referenceService.getAll();
-//    }
 
   @GetMapping("/getAll")
   List<Reference> getAll() {
