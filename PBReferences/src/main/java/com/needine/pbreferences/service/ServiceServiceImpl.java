@@ -1,11 +1,13 @@
 package com.needine.pbreferences.service;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.needine.pbreferences.domain.BankAccount;
 import com.needine.pbreferences.domain.Reference;
 import com.needine.pbreferences.repository.ReferenceRepository;
 import com.needine.pbreferences.repository.ServiceRepository;
@@ -26,6 +28,9 @@ public class ServiceServiceImpl implements ServiceService{
 	@Override
 	public com.needine.pbreferences.domain.Service create(com.needine.pbreferences.domain.Service service) {
 		// TODO Auto-generated method stub
+		List<BankAccount> bankAccounts = service.getBankAccounts().stream().map(e -> {
+			e.setService(service);
+			return e;}).collect(Collectors.toList());
 		return serviceRepository.save(service);
 	}
 
@@ -43,10 +48,6 @@ public class ServiceServiceImpl implements ServiceService{
 		}else {
 			log.info("getServicesByReference: servicesByReference: NONE");			
 		}
-//		List<com.needine.pbreferences.domain.Service> servicesByReferenceList = queryResult.stream().map(e -> {
-//			com.needine.pbreferences.domain.Service service = new com.needine.pbreferences.domain.Service((Long)e[0], ""+e[1], e[2], e[3]);
-//			return service;
-//			}).collect(Collectors.toList());
 		return queryResult;
 	}
 

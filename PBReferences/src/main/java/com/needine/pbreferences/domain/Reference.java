@@ -26,6 +26,8 @@ public class Reference {
     
     private final String name;
     private final String country;
+    
+    
 
     // Empty constructor for JSON/JPA
     public Reference() {

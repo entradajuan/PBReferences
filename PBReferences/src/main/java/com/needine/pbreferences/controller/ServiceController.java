@@ -47,8 +47,9 @@ public class ServiceController {
 
     @PostMapping("/createService")
     ResponseEntity<Service> createService(@RequestBody Service service) {
-        log.info("Server port {}: Creating Service {}", serverPort, service.toString());
-  	  return ResponseEntity.ok(serviceService.create(service));
+        
+    	log.info("Server port {}: Creating Service {}", serverPort, service.toString()); 
+  	  	return ResponseEntity.ok(serviceService.create(service));
     }
 
     
