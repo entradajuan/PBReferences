@@ -9,10 +9,12 @@ import javax.persistence.Id;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @RequiredArgsConstructor
 @Getter
+@Setter
 @ToString
 @EqualsAndHashCode
 @Entity
